@@ -1,8 +1,7 @@
 import React from 'react';
-import { Stack, Text, Link, FontWeights, Async } from 'office-ui-fabric-react';
+import { Stack, Text, Link, FontWeights } from 'office-ui-fabric-react';
 
 import logo from './fabric.png';
-import { remote } from './types/orbit/Sources';
 
 const boldStyle = {
   root: { fontWeight: FontWeights.semibold }
