@@ -2,10 +2,7 @@ import React from 'react';
 import { Stack, Text, Link, FontWeights, Async } from 'office-ui-fabric-react';
 
 import logo from './fabric.png';
-import { memory, remote } from './types/orbit/Sources';
-import coordinator from './types/orbit/Coordinators';
-import { backup } from './types/orbit/Backups';
-import { schema } from './types/orbit';
+import { remote } from './types/orbit/Sources';
 
 const boldStyle = {
   root: { fontWeight: FontWeights.semibold }
@@ -14,25 +11,6 @@ const boldStyle = {
 export class App extends React.Component<{}, {}> {
   constructor(props: {}) {
     super(props);
-  }
-
-  public async componentDidMount() {
-    let transform = await backup.pull(q => q.findRecords());
-    await memory.sync(transform);
-    await coordinator.activate();
-    const testBook = {
-      type: 'book',
-      id: '1',
-      attributes: {
-        title: 'Test Title',
-        description: 'Test description',
-        favorite: true,
-        read: true,
-        own: false,
-        notes: 'Test notes',
-      }
-    };
-    await remote.update(t => t.addRecord(testBook));
   }
 
   public render(): JSX.Element {
